@@ -1,10 +1,21 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NotesListComponent } from './notes-list/notes-list.component';
+import { NoteDetailComponent } from './note-detail/note-detail.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/notes', pathMatch: 'full' },
+  { path: 'notes', component: NotesListComponent },
+  { path: 'detail/:id', component: NoteDetailComponent }
+];
 
 @NgModule({
-  declarations: [],
+  exports: [
+    RouterModule
+  ],
   imports: [
-    CommonModule
+    RouterModule.forRoot(routes)
   ]
 })
+
 export class RoutingModule { }

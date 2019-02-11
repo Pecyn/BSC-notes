@@ -1,3 +1,8 @@
-<p>
-  notes-list works!
-</p>
+<h2>Notes list</h2>
+<ul>
+  <li *ngFor="let note of notes">
+    <a routerLink="/detail/{{ note.id }}">
+      <span>{{ note.id }}</span>: <span>{{ note.title }}</span>
+    </a>
+  </li>
+</ul>
