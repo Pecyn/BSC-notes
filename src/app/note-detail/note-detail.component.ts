@@ -1,11 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Note } from '../note';
 import { ActivatedRoute } from '@angular/router';
+import { NoteService } from '../note.service';
 
-const notesMock: Note[] = [
-  { id: 1, title: 'nazdar' },
-  { id: 2, title: 'bazar' }
-];
 
 @Component({
   selector: 'app-notes-detail',
@@ -14,13 +11,16 @@ const notesMock: Note[] = [
 })
 export class NoteDetailComponent implements OnInit {
 
-  note: Note;
+  @Input() note: Note = new Note();
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private noteService: NoteService) {}
 
   getNote() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.note = notesMock[id - 1];
+    this.noteService.getNote(id)
+      .subscribe(note => this.note = note);
   }
 
   ngOnInit() {

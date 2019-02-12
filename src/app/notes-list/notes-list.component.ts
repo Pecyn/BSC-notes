@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Note } from '../note';
-
-const notesMock: Note[] = [
-  { id: 1, title: 'nazdar' },
-  { id: 2, title: 'bazar' }
-];
+import { NoteService } from '../note.service';
 
 @Component({
   selector: 'app-notes-list',
@@ -16,10 +12,12 @@ export class NotesListComponent implements OnInit {
   notes: Note[];
 
   getNotes(): void {
-    this.notes = notesMock;
+    console.log(this.noteService);
+    this.noteService.getNotes()
+      .subscribe(notes => this.notes = notes);
   }
 
-  constructor() { }
+  constructor(private noteService: NoteService) { }
 
   ngOnInit() {
     this.getNotes();
