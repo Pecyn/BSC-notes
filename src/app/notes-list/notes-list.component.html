@@ -4,5 +4,6 @@
     <a routerLink="/detail/{{ note.id }}">
       <span>{{ note.id }}</span>: <span>{{ note.title }}</span>
     </a>
+    <button (click)="deleteNote(note.id)">Delete</button>
   </li>
 </ul>

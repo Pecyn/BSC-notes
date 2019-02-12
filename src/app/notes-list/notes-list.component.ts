@@ -12,9 +12,15 @@ export class NotesListComponent implements OnInit {
   notes: Note[];
 
   getNotes(): void {
-    console.log(this.noteService);
     this.noteService.getNotes()
       .subscribe(notes => this.notes = notes);
+  }
+
+  deleteNote(id: number): void {
+    this.noteService.deleteNote(id)
+      .subscribe(() => {
+        this.getNotes();
+      });
   }
 
   constructor(private noteService: NoteService) { }
