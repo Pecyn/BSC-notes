@@ -5,7 +5,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 
 const httpOptions = {
-  headers: new HttpHeaders( { 'Content-Type': 'application/json' })
+  headers: new HttpHeaders( {
+    'Content-Type': 'application/json',
+  }),
 };
 
 @Injectable({
@@ -37,6 +39,12 @@ export class NoteService {
     return this.http.delete<Note>(url, httpOptions).pipe(
       tap(_ => console.log(`deleted note id:${id}`)),
       catchError(this.handleError<Note>(`get note id:${id}`))
+    );
+  }
+  updateNote(note: Note): Observable<any> {
+    return this.http.put(`${this.notesApi}/${note.id}`, note, httpOptions).pipe(
+      tap(_ => console.log(`updated note id:${note.id}`)),
+      catchError(this.handleError<any>('update note'))
     );
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Note } from '../note';
 import { NoteService } from '../note.service';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-notes-list',
@@ -23,7 +24,14 @@ export class NotesListComponent implements OnInit {
       });
   }
 
-  constructor(private noteService: NoteService) { }
+  viewDetail(id: number): void {
+    this.router.navigate([`/detail/${id}`]);
+  }
+
+  constructor(
+    private noteService: NoteService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.getNotes();
