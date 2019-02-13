@@ -25,7 +25,23 @@ export class NotesListComponent implements OnInit {
   }
 
   viewDetail(id: number): void {
-    this.router.navigate([`/detail/${id}`]);
+    this.router.navigate([`/detail/${id}`])
+      .then(result => {
+        if (!result) {
+          console.error('navigation failed');
+        }
+      })
+      .catch(error => console.error('navigation error', error));
+  }
+
+  createNote(): void {
+    this.router.navigate(['new-note'])
+      .then(result => {
+        if (!result) {
+          console.error('navigation failed');
+        }
+      })
+      .catch(error => console.error('navigation error', error));
   }
 
   constructor(

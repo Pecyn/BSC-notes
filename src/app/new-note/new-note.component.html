@@ -1,0 +1,9 @@
+<h2>New note</h2>
+<div>
+  <label>title:
+    <input [(ngModel)]="noteTitle" placeholder="title">
+  </label>
+</div>
+
+<button (click)="saveNote()">Save</button>
+<button (click)="goToNotesList()">Back</button>

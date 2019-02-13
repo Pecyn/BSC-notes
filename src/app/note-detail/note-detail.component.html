@@ -1,12 +1,14 @@
-<script src="../note.service.ts"></script><h2>Note {{ note.id }} detail</h2>
-<div>
-  <span>id: {{ note.id }}</span>
-</div>
-<div>
-  <label>title:
-    <input [(ngModel)]="note.title" placeholder="title">
-  </label>
-</div>
+<div *ngIf="note">
+  <h2>Note {{ note.id }} detail</h2>
+  <div>
+    <span>id: {{ note.id }}</span>
+  </div>
+  <div>
+    <label>title:
+      <input [(ngModel)]="note.title" placeholder="title">
+    </label>
+  </div>
 
-<button (click)="saveNote()">Save</button>
-<button (click)="goToNotesList()">Back</button>
+  <button (click)="saveNote()">Save</button>
+  <button (click)="goToNotesList()">Back</button>
+</div>

@@ -10,14 +10,16 @@ import { NoteService } from '../note.service';
 })
 export class NoteDetailComponent implements OnInit {
 
-  @Input() note: Note = new Note();
+  @Input() note: Note;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private noteService: NoteService) {}
+    private noteService: NoteService
+  ) { }
 
-  getNote() {
+  getNote(): void {
+    console.log(this.note);
     const id = +this.route.snapshot.paramMap.get('id');
     this.noteService.getNote(id)
       .subscribe(note => {
@@ -26,13 +28,19 @@ export class NoteDetailComponent implements OnInit {
       });
   }
 
-  saveNote() {
+  saveNote(): void {
     this.noteService.updateNote(this.note)
       .subscribe();
   }
 
-  goToNotesList() {
-    this.router.navigate(['/notes']);
+  goToNotesList(): void {
+    this.router.navigate(['/notes'])
+      .then(result => {
+        if (!result) {
+          console.error('navigation failed');
+        }
+      })
+      .catch(error => console.error('navigation error', error));
   }
 
   ngOnInit() {
