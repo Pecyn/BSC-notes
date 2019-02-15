@@ -1,12 +1,12 @@
-<h2>New note</h2>
+<h2>{{ 'newNote' | translate }}</h2>
 <div class="container">
   <div class="row">
-    <div class="col-2">title</div>
-    <input class="col-8" [(ngModel)]="noteTitle" placeholder="note">
+    <div class="col-2">{{ 'title' | translate }}</div>
+    <input class="col-8" [(ngModel)]="noteTitle" placeholder="{{ 'noteInput' | translate }}">
   </div>
   <div class="buttons">
-    <button class="btn btn-outline-primary" (click)="saveNote()">Save</button>
-    <button class="btn btn-outline-primary" (click)="goToNotesList()">Back</button>
+    <button class="btn btn-outline-primary" (click)="saveNote()">{{ 'save' | translate }}</button>
+    <button class="btn btn-outline-primary" (click)="goToNotesList()">{{ 'back' | translate }}</button>
   </div>
   <div *ngIf="isSaving" class="spinner-border"></div>
 </div>

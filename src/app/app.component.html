@@ -1,4 +1,8 @@
-<h1>{{ title }}</h1>
+<h1>{{ 'appName' | translate }}</h1>
+<div class="lang-buttons">
+  <button class="btn-sm btn-outline-primary" (click)="setLanguage('en')">EN</button>
+  <button class="btn-sm btn-outline-primary" (click)="setLanguage('cz')">CZ</button>
+</div>
 <div class="container">
   <router-outlet></router-outlet>
 </div>

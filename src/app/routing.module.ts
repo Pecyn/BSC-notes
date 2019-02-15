@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { NotesListComponent } from './notes-list/notes-list.component';
 import { NoteDetailComponent } from './note-detail/note-detail.component';
 import { RouterModule, Routes } from '@angular/router';
-import {NewNoteComponent} from './new-note/new-note.component';
+import { NewNoteComponent } from './new-note/new-note.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/notes', pathMatch: 'full' },

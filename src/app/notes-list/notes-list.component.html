@@ -1,13 +1,13 @@
-<h2>Notes list</h2>
+<h2>{{ 'notesList' | translate }}</h2>
 <div class="container">
   <div *ngIf="!notes" class="spinner-border"></div>
   <div *ngFor="let note of notes" class="row">
     <div class="col-1">{{ note.id }}</div>
     <div class="col-8 col-sm-6">{{ note.title }}</div>
     <div class="buttons">
-      <button class="btn btn-outline-primary" (click)="deleteNote(note.id)">Delete</button>
-      <button class="btn btn-outline-primary" (click)="viewDetail(note.id)">View/Edit</button>
+      <button class="btn btn-outline-primary" (click)="deleteNote(note.id)">{{ 'delete' | translate }}</button>
+      <button class="btn btn-outline-primary" (click)="viewDetail(note.id)">{{ 'viewEdit' | translate }}</button>
     </div>
   </div>
 </div>
-<button class="btn btn-outline-primary" (click)="createNote()">Create new</button>
+<button class="btn btn-outline-primary" (click)="createNote()">{{ 'createNew' | translate }}</button>
