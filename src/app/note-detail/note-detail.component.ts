@@ -11,6 +11,7 @@ import { NoteService } from '../note.service';
 export class NoteDetailComponent implements OnInit {
 
   @Input() note: Note;
+  isSaving = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,14 +24,14 @@ export class NoteDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.noteService.getNote(id)
       .subscribe(note => {
-        console.log(note);
         this.note = note;
       });
   }
 
   saveNote(): void {
+    this.isSaving = true;
     this.noteService.updateNote(this.note)
-      .subscribe();
+      .subscribe(() => this.isSaving = false);
   }
 
   goToNotesList(): void {

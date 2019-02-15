@@ -10,6 +10,7 @@ import { NoteService } from '../note.service';
 export class NewNoteComponent implements OnInit {
 
   @Input() noteTitle: string;
+  isSaving = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,9 +20,11 @@ export class NewNoteComponent implements OnInit {
 
   saveNote(): void {
     if (this.noteTitle) {
+      this.isSaving = true;
       this.noteService.createNote(this.noteTitle)
         .subscribe(result => {
           console.log(`new note id: ${result.id}`);
+          this.isSaving = false;
           this.goToNotesList();
         });
     }

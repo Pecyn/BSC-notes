@@ -1,9 +1,12 @@
 <h2>New note</h2>
-<div>
-  <label>title:
-    <input [(ngModel)]="noteTitle" placeholder="title">
-  </label>
+<div class="container">
+  <div class="row">
+    <div class="col-2">title</div>
+    <input class="col-8" [(ngModel)]="noteTitle" placeholder="note">
+  </div>
+  <div class="buttons">
+    <button class="btn btn-outline-primary" (click)="saveNote()">Save</button>
+    <button class="btn btn-outline-primary" (click)="goToNotesList()">Back</button>
+  </div>
+  <div *ngIf="isSaving" class="spinner-border"></div>
 </div>
-
-<button (click)="saveNote()">Save</button>
-<button (click)="goToNotesList()">Back</button>

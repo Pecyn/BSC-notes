@@ -1,9 +1,13 @@
 <h2>Notes list</h2>
-<ul>
-  <li *ngFor="let note of notes">
-    <span>{{ note.id }}</span>: <span>{{ note.title }}</span>
-    <button (click)="deleteNote(note.id)">Delete</button>
-    <button (click)="viewDetail(note.id)">View/Edit</button>
-  </li>
-</ul>
-<button (click)="createNote()">Create new</button>
+<div class="container">
+  <div *ngIf="!notes" class="spinner-border"></div>
+  <div *ngFor="let note of notes" class="row">
+    <div class="col-1">{{ note.id }}</div>
+    <div class="col-8 col-sm-6">{{ note.title }}</div>
+    <div class="buttons">
+      <button class="btn btn-outline-primary" (click)="deleteNote(note.id)">Delete</button>
+      <button class="btn btn-outline-primary" (click)="viewDetail(note.id)">View/Edit</button>
+    </div>
+  </div>
+</div>
+<button class="btn btn-outline-primary" (click)="createNote()">Create new</button>

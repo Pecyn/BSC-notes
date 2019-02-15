@@ -20,6 +20,7 @@ export class NotesListComponent implements OnInit {
   deleteNote(id: number): void {
     this.noteService.deleteNote(id)
       .subscribe(() => {
+        this.notes = [];
         this.getNotes();
       });
   }

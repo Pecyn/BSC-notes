@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+$btn-primary-color: #18b186;
+
+.btn-outline-primary {
+  @include button-outline-variant($btn-primary-color);
+}

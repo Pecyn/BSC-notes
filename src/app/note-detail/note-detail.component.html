@@ -1,14 +1,21 @@
-<div *ngIf="note">
-  <h2>Note {{ note.id }} detail</h2>
-  <div>
-    <span>id: {{ note.id }}</span>
+<h2>Note detail</h2>
+<div class="container">
+  <div *ngIf="note; else loadingSpinner">
+    <div class="row">
+      <span class="col-2">id</span>
+      <span class="col-8">{{ note.id }}</span>
+    </div>
+    <div class="row">
+      <div class="col-2">title</div>
+      <input class="col-8" [(ngModel)]="note.title" placeholder="title">
+    </div>
+    <div class="buttons">
+      <button class="btn btn-outline-primary" (click)="saveNote()">Save</button>
+      <button class="btn btn-outline-primary" (click)="goToNotesList()">Back</button>
+    </div>
+    <div *ngIf="isSaving" class="spinner-border"></div>
   </div>
-  <div>
-    <label>title:
-      <input [(ngModel)]="note.title" placeholder="title">
-    </label>
-  </div>
-
-  <button (click)="saveNote()">Save</button>
-  <button (click)="goToNotesList()">Back</button>
+  <ng-template #loadingSpinner>
+    <div class="spinner-border"></div>
+  </ng-template>
 </div>
