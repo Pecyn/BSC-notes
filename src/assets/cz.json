@@ -1,0 +1,13 @@
+{
+  "appName": "BSC poznámky",
+  "notesList": "Seznam poznámek",
+  "noteDetail": "Detail poznámky",
+  "newNote": "Nová poznámka",
+  "title": "název",
+  "save": "Uložit",
+  "back": "Zpět",
+  "delete": "Smazat",
+  "viewEdit": "Zobrazit/Upravit",
+  "createNew": "Nová poznámka",
+  "noteInput": "text"
+}

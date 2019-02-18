@@ -1,0 +1,21 @@
+<h2>{{ 'noteDetail' | translate }}</h2>
+<div class="container">
+  <div *ngIf="note; else loadingSpinner">
+    <div class="row">
+      <span class="col-2">id</span>
+      <span class="col-8 note-id">{{ note.id }}</span>
+    </div>
+    <div class="row">
+      <div class="col-2">title</div>
+      <input class="col-8" [(ngModel)]="note.title" placeholder="title">
+    </div>
+    <div class="buttons">
+      <button class="btn btn-outline-primary" (click)="saveNote()">{{ 'save' | translate }}</button>
+      <button class="btn btn-outline-primary" (click)="goToNotesList()">{{ 'back' | translate }}</button>
+    </div>
+    <div *ngIf="isSaving" class="spinner-border"></div>
+  </div>
+  <ng-template #loadingSpinner>
+    <div class="spinner-border"></div>
+  </ng-template>
+</div>
