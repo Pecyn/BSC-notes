@@ -1,6 +1,8 @@
 {
   "name": "bsc-notes",
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "Test app for BCS",
+  "author": "Petr Warzel",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
