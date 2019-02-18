@@ -5,8 +5,8 @@
     <div class="col-1">{{ note.id }}</div>
     <div class="col-8 col-sm-6">{{ note.title }}</div>
     <div class="buttons">
-      <button class="btn btn-outline-primary" (click)="deleteNote(note.id)">{{ 'delete' | translate }}</button>
-      <button class="btn btn-outline-primary" (click)="viewDetail(note.id)">{{ 'viewEdit' | translate }}</button>
+      <button class="btn btn-outline-primary delete-btn" (click)="deleteNote(note.id)">{{ 'delete' | translate }}</button>
+      <button class="btn btn-outline-primary detail-btn" (click)="viewDetail(note.id)">{{ 'viewEdit' | translate }}</button>
     </div>
   </div>
 </div>

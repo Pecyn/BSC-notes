@@ -1,23 +1,19 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, element, by } from 'protractor';
 
-describe('workspace-project App', () => {
+describe('BSC notes', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to BSC-notes!');
-  });
-
-  afterEach(async () => {
-    // Assert that there are no errors emitted from the browser
-    const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-    expect(logs).not.toContain(jasmine.objectContaining({
-      level: logging.Level.SEVERE,
-    }));
+  it('should view note detail', async () => {
+    await browser.get(browser.baseUrl);
+    await element.all(by.css('.detail-btn')).get(1).click();
+    const viewTitle = element(by.css('h2'));
+    const noteId = element(by.css('.note-id'));
+    await expect(viewTitle.getText()).toEqual('Note detail');
+    await expect(noteId.getText()).toEqual('2');
   });
 });
